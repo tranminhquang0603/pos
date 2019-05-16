@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="layout" content="main"/>
+    <script src="{{ asset('lib/js/jquery/jquery-1.12.3.min.js')}}" type="text/javascript" ></script>
 
     <script src="{{ asset('lib/js/myjs.js')}}"></script>
 
@@ -20,13 +21,30 @@
     
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 
-    <script src="{{ asset('lib/js/jquery/jquery-1.12.3.min.js')}}" type="text/javascript" ></script>
-
     <link href="{{ asset('lib/css/customize-template.css')}}" type="text/css" media="screen, projection" rel="stylesheet" />
 
+    <link rel="stylesheet" href="plugins/font-awesome.min.css" >
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="plugins/adminlte.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="plugins/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="plugins/jquery-jvectormap-1.2.2.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker-bs3.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="plugins/bootstrap3-wysihtml5.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
     <body>
-        <div class="navbar navbar-fixed-top">
+        <!-- <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
                     <button class="btn btn-navbar" data-toggle="collapse" data-target="#app-nav-top-bar">
@@ -99,7 +117,133 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="{!! URL('home') !!}" class="brand">
+        <img src="{{ url('public/lib/images/logoevn.png')}}" width="30px" height="50px" style="margin-top:-4px">POS 
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fa fa-dashboard"></i>
+              <p>
+                Hệ thống
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ url('logout') }}" class="nav-link active">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Đăng xuất</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{!! URL::route('hethong.thongtincongty.getList') !!}" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Thông tin Cửa Hàng</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{!! URL::route('hethong.doimatkhau.getEdit') !!}" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Đổi mật khẩu</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="pages/widgets.html" class="nav-link">
+              <i class="nav-icon fa fa-th"></i>
+              <p>
+                Danh mục
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-pie-chart"></i>
+              <p>
+                Chức năng
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/charts/chartjs.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>ChartJS</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/charts/flot.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Flot</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/charts/inline.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Inline</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-tree"></i>
+              <p>
+                Trợ giúp
+                <i class="fa fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/UI/general.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>General</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/UI/icons.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Icons</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/UI/buttons.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Buttons</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/UI/sliders.html" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Sliders</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
         <div id="body-container">
             <div id="body-content">
                 @yield('danhmuc')
@@ -153,6 +297,8 @@
 
         <script src="{{ asset('lib/js/jquery/jquery-chosen.js')}}" type="text/javascript" ></script>
         <script src="{{ asset('lib/js/jquery/virtual-tour.js')}}" type="text/javascript" ></script>
+
+        <script src="lib/js/adminlte.js"></script>
 
         <script type="text/javascript">
             $(function() {
