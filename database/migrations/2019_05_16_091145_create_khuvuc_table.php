@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateKhuvucTable extends Migration {
 
@@ -14,12 +14,13 @@ class CreateKhuvucTable extends Migration {
 	{
 		Schema::create('khuvuc', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->integer('id')->unsigned()->primary();
 			$table->timestamps();
-			$table->string('kv_ma',10);
+			$table->string('kv_ma', 10);
 			$table->string('kv_ten', 100);
 		});
 	}
+
 
 	/**
 	 * Reverse the migrations.

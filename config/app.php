@@ -144,8 +144,8 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
-		\Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
-		Barryvdh\DomPDF\ServiceProvider::class,
+		Way\Generators\GeneratorsServiceProvider::class,
+Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
 
 
 	],

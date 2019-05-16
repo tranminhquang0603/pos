@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateChitietnhapkhoTable extends Migration {
 
@@ -16,14 +16,13 @@ class CreateChitietnhapkhoTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('ctnk_soluong');
-			$table->decimal('ctnk_thanhtien',10,2);
-			$table->integer('vt_id')->unsigned();
-            $table->foreign('vt_id')->references('id')->on('vattu')->onUpdate('cascade');
-            $table->integer('nk_id')->unsigned();
-            $table->foreign('nk_id')->references('id')->on('nhapkho')->onUpdate('cascade');
-            $table->timestamps();
+			$table->decimal('ctnk_thanhtien', 10);
+			$table->integer('vt_id')->unsigned()->nullable()->index('chitietnhapkho_vt_id_foreign');
+			$table->integer('nk_id')->unsigned()->index('chitietnhapkho_nk_id_foreign');
+			$table->timestamps();
 		});
 	}
+
 
 	/**
 	 * Reverse the migrations.

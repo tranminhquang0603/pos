@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateNhasanxuatTable extends Migration {
 
@@ -12,15 +12,16 @@ class CreateNhasanxuatTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('nhasanxuat', function (Blueprint $table) {
-		    $table->increments('id');
-			$table->char('nsx_ma',10);
-			$table->String('nsx_ten',100);
-            $table->integer('kv_id')->unsigned();
-            $table->foreign('kv_id')->references('id')->on('khuvuc')->onUpdate('cascade');
+		Schema::create('nhasanxuat', function(Blueprint $table)
+		{
+			$table->integer('id')->unsigned()->primary();
+			$table->char('nsx_ma', 10);
+			$table->string('nsx_ten', 100);
+			$table->integer('kv_id')->unsigned()->index('nhasanxuat_kv_id_foreign');
 			$table->timestamps();
 		});
 	}
+
 
 	/**
 	 * Reverse the migrations.

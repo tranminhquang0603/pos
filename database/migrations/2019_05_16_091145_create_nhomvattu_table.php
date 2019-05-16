@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateNhomvattuTable extends Migration {
 
@@ -14,12 +14,13 @@ class CreateNhomvattuTable extends Migration {
 	{
 		Schema::create('nhomvattu', function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->string('nvt_ma',10);
+			$table->integer('id')->unsigned()->primary();
+			$table->string('nvt_ma', 10);
 			$table->string('nvt_ten', 100);
 			$table->timestamps();
 		});
 	}
+
 
 	/**
 	 * Reverse the migrations.
@@ -30,4 +31,5 @@ class CreateNhomvattuTable extends Migration {
 	{
 		Schema::drop('nhomvattu');
 	}
+
 }
